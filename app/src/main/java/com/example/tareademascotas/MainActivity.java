@@ -125,4 +125,16 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    protected void onSaveInstanceDtate(Bundle outState){
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("listado",listItems);
+    }
+
+    protected void onRestoreInstanceState(Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
+
+
+    }
+
+
 }

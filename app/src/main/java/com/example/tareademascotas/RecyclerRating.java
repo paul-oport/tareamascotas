@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.LauncherActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -47,5 +50,43 @@ public class RecyclerRating extends AppCompatActivity {
 
         adapter = new RatingAdaptador(lista);
         recycler.setAdapter(adapter);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu1,menu);
+
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        lista = new ArrayList<Entidad2>();
+        int foto1 = 100;
+        String nombre1;
+        String rating1;
+        int id = item.getItemId();
+        if (id == R.id.atras) {
+
+
+           Intent intent = new Intent(RecyclerRating.this, MainActivity.class);
+
+
+            startActivity(intent);
+            //}
+            //intent.putExtra("lista", listItems);
+
+            //startActivity(intent);
+
+        }
+        return true;
+    }
+    private ArrayList<Entidad2> GetArrayItems(){
+
+
+        lista.add(new Entidad2(R.drawable.aventurero1, "Aventurero", "0"));
+
+        lista.add(new Entidad2(R.drawable.intelectual1,"Intelectual","0"));
+
+
+       return lista;
     }
 }
